@@ -85,3 +85,25 @@ Bloco false do NG-TEMPLATE
     <li *ngFor="let carro of carrosLista; index as index; first as primeiro; last as ultimo"> {{ primeiro }} {{ index + 1 }} {{ carro.placa }} {{ carro.cor }} {{ ultimo }}</li>
 
 </ul>
+
+<hr>
+<hr>
+<h1> Resolução do Exercício </h1>
+
+<ul> 
+<li *ngFor="let memesAgrupados of MEMES_AGRUPADOS_POR_CATEGORIA; let par = even">
+
+    {{ memesAgrupados.categoria }}
+
+    <div *ngFor="let meme of memesAgrupados.memes">
+        <img [src]="Referencia + meme.imagemURL" *ngIf="par">
+    <h2 *ngIf="!par"> PAR </h2>
+    </div>
+</li>
+</ul>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
