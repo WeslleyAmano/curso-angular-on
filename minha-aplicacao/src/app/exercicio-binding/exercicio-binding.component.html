@@ -1,0 +1,39 @@
+<h1> Eventos event Binding </h1>
+
+<button (click)="onClick($event)"
+(mouseenter)="passouMouse()">
+Clique em mim 
+</button>
+
+
+<br>
+<button (click)="onClickBotaoEmissor($event)">
+    Emitir informações de clique.
+</button>
+<hr>
+
+<br>
+<input type="text"
+[value]="valorCampo"
+(keyup)="digitouAlgo($event)">
+<br>
+
+<p> Palavra = {{ palavra }}</p>
+
+<br>
+
+<p> Cor: {{ color }} </p>
+
+<input type="text" [value]="initialValue">
+
+<br>
+<br>
+
+<button [disabled]="isDisabled"> Clique em mim </button> 
+
+<br>
+<p [attr.aria-label] = "isDisabled ? 'Botão desabilitado' : acessibilityText"> Um texto qualquer... </p>
+
+<br>
+
+<img [src]="imageURL">
