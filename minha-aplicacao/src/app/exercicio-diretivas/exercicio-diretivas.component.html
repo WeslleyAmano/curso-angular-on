@@ -1,0 +1,87 @@
+
+
+<button (click)="trocarCond()">Trocar condição</button>
+<br>
+<div *ngIf="deveExibir; else elseBlock">
+Olá! Estou dentro do ngIf - Sintaxe abreviada.    
+
+</div>
+
+<ng-template #elseBlock>
+
+    <div>
+
+        Vou ser exibido quando deveExibir for false.
+
+    </div>
+</ng-template>
+
+
+<br>
+
+<div *ngIf="soma(6, 5) > 10">
+
+    Exibi conforme resultado da soma.
+</div>
+
+<ng-template [ngIf]="deveExibir">
+
+    <div>
+
+    Atenção
+
+    </div>
+</ng-template>
+
+<div *ngIf="deveExibir; then thenBlock; else elseBlock2"> 
+
+</div>
+
+<ng-template #thenBlock>
+
+    Bloco true do NG-TEMPLATE
+</ng-template>
+
+<ng-template #elseBlock2>
+Bloco false do NG-TEMPLATE
+</ng-template>
+
+<br>
+<hr>
+<br>
+
+
+
+<ul>
+
+    <li *ngFor="let fruta of listaFrutas"> {{ fruta }} </li>
+
+</ul>
+<br>
+
+<ul>
+
+    <li *ngFor="let carro of carrosLista"> {{ carro.placa }} </li>
+
+</ul>
+<br>
+
+<ul>
+
+    <li *ngFor="let carro of carrosLista"> {{ carro.placa }} {{ carro.cor}}</li>
+
+</ul>
+
+<hr>
+
+<ul>
+
+    <li *ngFor="let carro of carrosLista; index as index"> {{ index + 1 }} {{ carro.placa }} {{ carro.cor}}</li>
+
+</ul>
+
+<ul>
+
+    <li *ngFor="let carro of carrosLista; index as index; first as primeiro; last as ultimo"> {{ primeiro }} {{ index + 1 }} {{ carro.placa }} {{ carro.cor }} {{ ultimo }}</li>
+
+</ul>
