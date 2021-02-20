@@ -1,0 +1,29 @@
+<!-- <p> Titulo: {{ filme.titulo  | uppercase}}</p>
+<p> Avaliação: {{ filme.estrelas | number  }}</p>
+<p> Preço de Aluguel: {{ filme.precoAluguel | currency}}</p>
+<p> Lançamento: {{ filme.dataLancamento | date}}</p> -->
+
+<p> Titulo: {{ filme.titulo  | uppercase}}</p>
+<p> Avaliação: {{ filme.estrelas | number: '1.1-2' }}</p>
+<p> Preço de Aluguel: {{ filme.precoAluguel | currency: 'R$' }}</p>
+<p> Lançamento: {{ filme.dataLancamento | date:'medium' }}</p>
+
+<br>
+
+<hr>
+
+<br>
+
+<ul>
+    <li *ngFor="let compra of compras">
+        <p> <b> Produto: {{ compra.produto | uppercase}} </b></p>
+        <p> Valor: {{ compra.valor | currency: 'R$' }} </p>
+        <p> Quantidade: {{ compra.quantidade | number: '1.1-4' }} </p>
+        <!-- <p> Peso: {{ compra.peso }} KG</p> -->
+        <p> Peso: {{ compra.peso > 0 ? (compra.peso | number: '1.1-2') + ' KG' : 'sem peso' }} </p>
+        <p> Data: {{ compra.data | date: 'dd \'de\' MMMM \'de\' yyyy'}}  </p>
+    </li>
+</ul>
+
+
+
