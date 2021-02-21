@@ -1,16 +1,19 @@
 <div class="text-center">
     <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="form-signin pt-5">
         <div class="p-2">
-            <input type="email" name="email" 
+            <input #emailInput type="email" name="email" 
             [(ngModel)]="email" class="form-control" 
-            placeholder="Email" email required>
-            <p *ngIf="exibeErro('email', form)"  class="text-left"> E-mail inválido. Preencha novamente! </p> 
+            placeholder="Email" email required
+            [ngClass]="exibeErro('email', form) ? 'is-invalid' : '' ">
+            <div *ngIf="exibeErro('email', form)"  class="invalid-feedback"> E-mail inválido. Preencha novamente! </div> 
         </div>
-        <div class="p-2">
-            <input type="password" name="password" 
+        <div class="p-2"> 
+            <input #passwordInput type="password" name="password" 
             [(ngModel)]="password" class="form-control" 
-            placeholder="Senha" required>
-            <p *ngIf="exibeErro('password', form)" class="text-left"> E-mail inválido. Preencha novamente! </p> 
+            placeholder="Senha" required
+            [ngClass]="exibeErro('password', form) ? 'is-invalid' : '' ">
+
+            <div *ngIf="exibeErro('password', form)" class="invalid-feedback"> Senha inválido. Preencha novamente! </div> 
 
         </div>
         <div class="p-2">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  @ViewChild('emailInput') emailInput!: ElementRef;
+  @ViewChild('passwordInput') passwordInput!: ElementRef;
   email!: string;
   password!: string;
   constructor() { }
@@ -18,8 +20,20 @@ export class LoginComponent implements OnInit {
   onSubmit(form: any){
     if (!form.valid){
       form.controls.email.markAsTouched();
-      console.log(form);
-      console.log('formulário inválido!');
+      form.controls.password.markAsTouched();
+
+      if (form.controls.email.invalid){
+        this.emailInput.nativeElement.focus();
+        return;
+
+      }
+      if (form.controls.password.invalid){
+        this.passwordInput.nativeElement.focus();
+        return;
+
+      }
+
+      return;
     }
 
   }
