@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { finalize, take } from 'rxjs/operators';
 
 import { Contato } from './contatos.interfaces';
@@ -17,6 +18,7 @@ export class ContatosComponent implements OnInit {
 
   constructor(
     private contatosService: ContatosService,
+    private router: Router,
   ) { }
 
   // tslint:disable-next-line: typedef
@@ -50,5 +52,9 @@ export class ContatosComponent implements OnInit {
     this.erroNoCarregamento = true;
     console.error(error);
   }
+// tslint:disable-next-line: typedef
+irParaDetalhes(idContato: string) {
+  this.router.navigate([`contatos/${idContato}`]);
+}
 
 }
