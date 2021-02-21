@@ -1,4 +1,17 @@
-<div class="container">
+<div class="container text-center">
+ 
+   <div class="spinner-border" role="status" *ngIf="estaCarregando">
+    <span class="sr-only">Loading...</span>
+  </div>
+
+  <div *ngIf="erroCarregamento">
+    <h2> Deu erro :( </h2>
+  </div>
+  <br>
+  <div *ngIf="!estaCarregando && !erroCarregamento">
+    <button (click)="paginaAnterior()" [disabled]="pagina === 1"> Página Anterior</button>
+    <p> Pagina atual: {{ pagina }}</p>
+    <button (click)="proximaPagina()"> Próxima Página </button>
     <table class="table table-hover">
       <tr>
         <th> ID </th>
@@ -16,4 +29,5 @@
         <td> {{ transacao.categoria }} </td>
       </tr>
     </table>
+  </div>
   </div>
