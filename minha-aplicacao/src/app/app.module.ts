@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NaoEncontradoComponent } from './nao-encontrado/nao-encontrado.component';
 import { SharedModule } from './shared/shared.module';
+import { ContatosComponent } from './contatos/contatos.component';
 
 registerLocaleData(localeBr, 'pt');
 
@@ -20,7 +21,8 @@ registerLocaleData(localeBr, 'pt');
     HomeComponent,
     LoginComponent,
     ExtratoComponent,
-    NaoEncontradoComponent
+    NaoEncontradoComponent,
+    ContatosComponent
   ],
   imports: [
     BrowserModule,
